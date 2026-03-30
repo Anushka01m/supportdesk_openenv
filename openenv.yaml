@@ -1,0 +1,3 @@
+name: supportdesk-env
+version: 0.1.0
+entrypoint: server.app:app

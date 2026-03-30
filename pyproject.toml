@@ -1,0 +1,12 @@
+[project]
+name = "supportdesk-openenv"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "openenv-core",
+    "fastapi",
+    "uvicorn",
+]
+
+[project.scripts]
+server = "server.app:main"
