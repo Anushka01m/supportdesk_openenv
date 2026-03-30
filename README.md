@@ -158,12 +158,3 @@ It focuses on **infrastructure correctness** over model quality — exactly what
 ✅ Ready to submit
 
 ***
-
-If you want, next I can:
-
-*   ✅ Add **badges for Hugging Face Space**
-*   ✅ Add **screenshots / demo GIF**
-*   ✅ Add **OpenAI‑enabled inference**
-*   ✅ Help you **final‑submit**
-
-Just tell me what you want next 🚀
