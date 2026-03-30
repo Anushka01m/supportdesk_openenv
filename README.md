@@ -1,29 +1,44 @@
 # 🧠 SupportDesk OpenEnv
 
-**An OpenEnv‑based support‑desk environment** with Docker deployment and a fully working inference loop.  
-Designed for **agent evaluation, reinforcement learning, and tool‑calling workflows**.
-
 <p align="center">
   https://img.shields.io/badge/OpenEnv-Ready-brightgreen
   https://img.shields.io/badge/Docker-Supported-blue
   https://img.shields.io/badge/Inference-Working-success
+  https://img.shields.io/badge/Status-Submission%20Ready-success
 </p>
+
+<p align="center">
+  <b>An OpenEnv-based support desk environment with Docker deployment and a fully working inference loop.</b>
+</p>
+
+***
+
+## 🚀 Live Demo (Hugging Face Space)
+
+👉 **Hugging Face Space**:  
+`https://huggingface.co/spaces/<YOUR_USERNAME>/supportdesk-openenv`
+
+> ℹ️ This Space runs the environment as a Docker container.  
+> A blank UI is expected — the environment runs via API endpoints.
 
 ***
 
 ## ✨ What this project does
 
-This environment simulates a **customer support desk** where an agent can:
+This project implements a **Support Desk simulation** using the **OpenEnv framework**, enabling agents to interact with structured tasks via `/reset` and `/step` calls.
 
-*   📨 Handle incoming tickets
-*   🧩 Select tasks (`easy`, `medium`, `hard`)
-*   🛠️ Take structured actions via `/step`
+An agent can:
+
+*   📨 Handle incoming support tickets
+*   🧩 Select tasks: `easy`, `medium`, `hard`
+*   🛠️ Perform tool‑based actions
 *   📊 Receive progress & score signals
 *   🔁 Reset cleanly between episodes
 
-✅ Fully compliant with **OpenEnv specs**  
+✅ Fully OpenEnv‑compliant  
 ✅ Passes `openenv validate`  
-✅ Ready for **Hugging Face Spaces (Docker)**
+✅ Dockerized & production‑ready  
+✅ Designed for agent evaluation and RL workflows
 
 ***
 
@@ -32,10 +47,10 @@ This environment simulates a **customer support desk** where an agent can:
 ```text
 supportdesk_openenv/
 ├── server/                # OpenEnv environment implementation
-├── inference.py           # Working inference script (no hanging)
+├── inference.py           # Working inference script
 ├── Dockerfile             # Docker image for deployment
-├── pyproject.toml         # Dependencies & metadata
-├── openenv.yaml           # OpenEnv config
+├── pyproject.toml         # Project dependencies
+├── openenv.yaml           # OpenEnv configuration
 ├── uv.lock                # Dependency lockfile
 ├── .gitignore
 └── README.md
@@ -43,9 +58,9 @@ supportdesk_openenv/
 
 ***
 
-## 🚀 Quick Start (Local)
+## ⚡ Quick Start (Local)
 
-### 1️⃣ Build & run the environment
+### 1️⃣ Build and run the environment
 
 ```bash
 docker build -t supportdesk-openenv .
@@ -79,7 +94,7 @@ python inference.py
 }
 ```
 
-> ℹ️ Zero scores are expected for the baseline agent and are **completely valid**.
+> ✅ Zero scores are **expected and valid** for the baseline agent.
 
 ***
 
@@ -104,6 +119,16 @@ The environment exposes standard OpenEnv endpoints:
 }
 ```
 
+### Example noop action
+
+```json
+{
+  "action": {
+    "tool": "noop"
+  }
+}
+```
+
 ***
 
 ## 🧪 Validation Status
@@ -112,7 +137,29 @@ The environment exposes standard OpenEnv endpoints:
 ✅ Docker build — **PASSED**  
 ✅ Inference loop — **WORKING**
 
-This repo is **submission‑ready**.
+This repository is **fully submission‑ready**.
+
+***
+
+## 🤖 Inference Design
+
+*   `inference.py` demonstrates a **deterministic, stable baseline**
+*   Uses `noop` actions to validate full wiring
+*   Avoids network dependencies or hanging calls
+*   Can be safely extended with an LLM agent
+
+***
+
+## 🧠 (Optional) OpenAI / LLM Upgrade
+
+To improve scores, you can:
+
+*   Replace `noop` with LLM‑generated actions
+*   Use `OpenAI` or OpenAI‑compatible APIs
+*   Set `MODEL_NAME`, `API_BASE_URL`, `HF_TOKEN`
+
+> ⚠️ This is **optional**.  
+> Infrastructure correctness is the primary evaluation criterion.
 
 ***
 
@@ -130,24 +177,36 @@ Once deployed, the Space URL can be used directly for evaluation.
 
 ***
 
+## 📸 Demo / Screenshots (Optional)
+
+Screenshotss or GIFs here:
+
+```markdown
+assets/demo.gif
+```
+
+***
+
 ## 🧩 Why this matters
 
 This repo demonstrates:
 
-*   Correct OpenEnv wiring
-*   Clean agent‑environment interaction
-*   Deterministic inference
-*   Production‑ready Docker deployment
+*   ✅ Correct OpenEnv wiring
+*   ✅ Clean agent‑environment interaction
+*   ✅ Deterministic inference behavior
+*   ✅ Production‑ready Docker deployment
 
-It focuses on **infrastructure correctness** over model quality — exactly what OpenEnv expects.
+It prioritizes **infrastructure correctness**, not model sophistication.
 
 ***
 
-## 📌 Notes
+## ✅ Submission Checklist
 
-*   The baseline inference agent uses `noop` actions for stability.
-*   You can later plug in an LLM agent to improve scores.
-*   Zero scores do **not** affect validation or eligibility.
+*   ✅ `openenv validate` passed
+*   ✅ `inference.py` runs end‑to‑end
+*   ✅ Docker builds and runs
+*   ✅ Hugging Face Space deployable
+*   ✅ Clean GitHub repository
 
 ***
 
@@ -156,5 +215,11 @@ It focuses on **infrastructure correctness** over model quality — exactly what
 ✅ Complete  
 ✅ Clean  
 ✅ Ready to submit
+
+***
+
+## 📬 Contact
+
+Maintained by **Anushka01m**
 
 ***
